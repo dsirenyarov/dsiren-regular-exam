@@ -1,0 +1,27 @@
+
+
+name: Build and test Cookbook app
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repo checkoout
+      uses: actions/checkout@v4
+    - name: Use Node.js 21.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 21.x
+        cache: 'npm'
+    - name: Install dependancies
+      run: npm install
+    - name: Run UNIT tests
+      run: npm run test:unit
