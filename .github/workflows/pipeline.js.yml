@@ -25,3 +25,5 @@ jobs:
       run: npm install
     - name: Run UNIT tests
       run: npm run test:unit
+    - name: Display softuni username
+      run: echo "dsiren"
